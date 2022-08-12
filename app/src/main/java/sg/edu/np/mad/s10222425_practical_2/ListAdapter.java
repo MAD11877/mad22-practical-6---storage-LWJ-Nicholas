@@ -67,8 +67,8 @@ public class ListAdapter extends RecyclerView.Adapter {
                 @Override
                 public void onClick(View view) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setTitle("This is an AlertDialog");
-                    builder.setMessage("Please choose an option below");
+                    builder.setTitle("Profile");
+                    builder.setMessage(userList.get(position).name);
                     builder.setCancelable( false );
                     builder.setPositiveButton("View", new DialogInterface.OnClickListener() {
                         @Override

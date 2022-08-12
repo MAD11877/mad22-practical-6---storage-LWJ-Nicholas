@@ -30,16 +30,20 @@ public class ListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list);
 
         recyclerView = findViewById(R.id.recyclerView);
+        UserDBHandler db = new UserDBHandler(this,null,null,1);
+        db.initilizeData(20);
+        userList = db.getUsers();
 
         //function to autogenerate random numbers
-        for(int i = 0; i < num; i++){
+/*        for(int i = 0; i < num; i++){
             String randInt = Integer.toString(new Random().nextInt(10000000) + 10000000);
             String randInt2 = Integer.toString(new Random().nextInt());
             Boolean randBool3 = new Random().nextBoolean();
             User u = new User("Name" + randInt, "Description "+ randInt2, Integer.parseInt(randInt), randBool3);
             userList.add(u);
-        }
+        }*/
 
+        //ListAdapter listAdapter = new ListAdapter(this, userList);
         ListAdapter listAdapter = new ListAdapter(this, userList);
         recyclerView.setAdapter(listAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
